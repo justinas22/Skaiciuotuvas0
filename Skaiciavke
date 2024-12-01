@@ -1,0 +1,125 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void suma(double a, double b) {
+    cout << "Atsakymas (suma): " << a + b << endl;
+}
+
+void skirtumas(double a, double b) {
+    cout << "Atsakymas (skirtumas): " << a - b << endl;
+}
+
+void daugyba(double a, double b) {
+    cout << "Atsakymas (daugyba): " << a * b << endl;
+}
+
+void dalyba(double a, double b) {
+    if (b != 0) {
+        cout << "Atsakymas (dalyba): " << a / b << endl;
+    } else {
+        cout << "Klaida" << endl;
+    }
+}
+
+void dalybaliekana(int a, int b) {
+    if (b != 0) {
+        cout << "Atsakymas (dalybaliekana): " << a % b << endl;
+    }else {
+        cout << "Klaida" << endl;
+    }
+}
+
+void kelimasLaipsniu(double a, int b) {
+    cout << "Rezultatas (kelimas laipsniu): " << pow(a, b) << endl;
+}
+
+void kvadratinėSaknis(double a) {
+    if (a >= 0) {
+        cout << "Rezultatas (kvadratinė šaknis): " << sqrt(a) << endl;
+    } else {
+        cout << "Klaida" << endl;
+    }
+}
+
+void palyginimas(double a, double b) {
+    if (a > b) {
+        cout << a << " didesnis už " << b << endl;
+    } else if (a < b) {
+        cout << a << " mažesnis už " << b << endl;
+    } else {
+        cout << a << " lygus " << b << endl;
+    }
+}
+
+int main() {
+    double a, b;
+    int choice, laipsnis;
+
+    while (true) {
+        cout << "\nPasirinkite veiksma:\n";
+        cout << "1. Sudetis\n";
+        cout << "2. Atimtis\n";
+        cout << "3. Daugyba\n";
+        cout << "4. Dalyba\n";
+        cout << "5. Dalyba su liekana (Modulo)\n";
+        cout << "6. Kelimas laipsniu\n";
+        cout << "7. Kvadratinė šaknis\n";
+        cout << "8. Skaičių palyginimas\n";
+        cout << "9. Išėjimas\n";
+        cout << "Pasirinkimas: ";
+        cin >> choice;
+
+        if (choice == 9) {
+            cout << "Programos pabaiga.\n";
+            break;
+        }
+
+        switch (choice) {
+            case 1:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                sudetis(a, b);
+                break;
+            case 2:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                atimtis(a, b);
+                break;
+            case 3:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                daugyba(a, b);
+                break;
+            case 4:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                dalyba(a, b);
+                break;
+            case 5:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                dalybaSuLiekana(static_cast<int>(a), static_cast<int>(b));
+                break;
+            case 6:
+                cout << "Įveskite skaičių ir laipsnį: ";
+                cin >> a >> laipsnis;
+                kelimasLaipsniu(a, laipsnis);
+                break;
+            case 7:
+                cout << "Įveskite skaičių: ";
+                cin >> a;
+                kvadratinėSaknis(a);
+                break;
+            case 8:
+                cout << "Įveskite du skaičius: ";
+                cin >> a >> b;
+                palyginimas(a, b);
+                break;
+            default:
+                cout << "Klaida. Pakartokite.\n";
+        }
+    }
+
+    return 0;
+}
